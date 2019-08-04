@@ -17,11 +17,13 @@ attr_reader :id
         grade INTEEGER
         )
         SQL
+        
     DB[:conn].execute(sql) 
   end
 
   def self.drop_table
     sql = "DROP TABLE students"
+    
     DB[:conn].execute(sql)
   end
   
@@ -34,7 +36,10 @@ attr_reader :id
     DB[:conn].execute(sql, self.name, self.grade)
  
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
- 
+  end
+  
+  def self.create(name:, grade:)
+    
   end
   
 end
