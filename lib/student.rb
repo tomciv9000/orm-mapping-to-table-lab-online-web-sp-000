@@ -1,13 +1,17 @@
 class Student
 
-attr_accessor :name, :album, :id
+attr_accessor :name, :grade
+attr_reader :id
  
-  def initialize(name, album, id=nil)
+  def initialize(name, grade, id=nil)
     @id = id
     @name = name
-    @album = album
+    @grade = grade
   end
  
+  
+  
+  
   def save
     sql = <<-SQL
       INSERT INTO songs (name, album) 
